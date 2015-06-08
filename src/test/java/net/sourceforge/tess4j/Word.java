@@ -5,7 +5,7 @@ import java.awt.Rectangle;
 /**
  * Encapsulates Tesseract results.
  */
-class Word {
+public class Word {
 
     private final String text;
     private final float confidence;

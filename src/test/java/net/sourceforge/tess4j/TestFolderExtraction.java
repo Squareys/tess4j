@@ -67,12 +67,12 @@ public class TestFolderExtraction {
             /**
              * Performs OCR on the image.
              */
-            String result = instance.doOCR(imageFile);
-            logger.info(result);
+//            String result = instance.doOCR(imageFile);
+//            logger.info(result);
 
-        } catch (TesseractException e) {
-            logger.error(e.getMessage());
-            logger.error(e.getMessage(), e);
+//        } catch (TesseractException e) {
+//            logger.error(e.getMessage());
+//            logger.error(e.getMessage(), e);
         } catch (URISyntaxException e) {
             logger.error(e.getMessage(), e);
         }
