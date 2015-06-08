@@ -252,7 +252,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
      * the whole image.
      */
     protected void setImage(BufferedImage buf, Rectangle rect) {
-    	setImage(buf.getWidth(), buf.getHeight(), ImageIOHelper.convertImageData(buf), rect, buf.getSampleModel().getSampleSize(0));
+    	setImage(buf.getWidth(), buf.getHeight(), ImageIOHelper.convertImageData(buf), rect, buf.getColorModel().getPixelSize());
     }
     
     /**
