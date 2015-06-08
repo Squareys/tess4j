@@ -1,6 +1,4 @@
-## Tess4J
-
-[![Join the chat at https://gitter.im/nguyenq/tess4j](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nguyenq/tess4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+## Light-Weight Tess4J
 
 A Java JNA wrapper for [Tesseract OCR API](http://code.google.com/p/tesseract-ocr/).
 
@@ -8,11 +6,10 @@ Tess4J is released and distributed under the [Apache License, v2.0](http://www.a
 
 ## Features
 
-The library provides optical character recognition (OCR) support for:
+The library provides optical character recognition (OCR) support for Java images.
 
-* TIFF, JPEG, GIF, PNG, and BMP image formats
-* Multi-page TIFF images
-* PDF document format
+Im comparision to [The official Tess4J](https://github.com/nguyenq/tess4j), this
+Tess4J has no ImageIO capabilities.
 
 
 ## Tutorial
