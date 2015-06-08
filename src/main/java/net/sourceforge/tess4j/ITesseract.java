@@ -40,6 +40,76 @@ public interface ITesseract {
 
         TEXT, HOCR, UNLV, BOX
     }
+    
+    enum PageSegMode {
+		PSM_OSD_ONLY(0),       ///< Orientation and script detection only.
+		PSM_AUTO_OSD(1),       ///< Automatic page segmentation with orientation and
+								///< script detection. (OSD)
+		PSM_AUTO_ONLY(2),      ///< Automatic page segmentation, but no OSD, or OCR.
+		PSM_AUTO(3),           ///< Fully automatic page segmentation, but no OSD.
+		PSM_SINGLE_COLUMN(4),  ///< Assume a single column of text of variable sizes.
+		PSM_SINGLE_BLOCK_VERT_TEXT(5),  ///< Assume a single uniform block of vertically
+		   						///< aligned text.
+		PSM_SINGLE_BLOCK(6),   ///< Assume a single uniform block of text. (Default.)
+		PSM_SINGLE_LINE(7),    ///< Treat the image as a single text line.
+		PSM_SINGLE_WORD(8),    ///< Treat the image as a single word.
+		PSM_CIRCLE_WORD(9),    ///< Treat the image as a single word in a circle.
+		PSM_SINGLE_CHAR(10),    ///< Treat the image as a single character.
+		PSM_SPARSE_TEXT(11),    ///< Find as much text as possible in no particular order.
+		PSM_SPARSE_TEXT_OSD(12),  ///< Sparse text with orientation and script det.
+		
+		PSM_COUNT(13);           ///< Number of enum entries.
+		  
+		public int m_mode;
+		  
+		PageSegMode(final int m) {
+			m_mode = m;
+		}
+		
+		public final static String[] m_valueNames = {
+				"OSD Only",
+				"Auto Pageseg and OSD",
+				
+				"Auto Pageseg Only",
+				"Full Auto Pageseg",
+				"Single Column",
+				"Single Vert Block",
+				
+				"Single Block",
+				"Single Line",
+				"Single Word",
+				"Circle Word",
+				"Single Char",
+				"Sparse Text",
+				"Sparse Test with OSD"
+		};
+  	};
+  	
+  	
+  	enum OcrEngineMode {
+		OEM_TESSERACT_ONLY(0),           // Run Tesseract only - fastest
+		OEM_CUBE_ONLY(1),                // Run Cube only - better accuracy, but slower
+		OEM_TESSERACT_CUBE_COMBINED(2),  // Run both and combine results - best accuracy
+		OEM_DEFAULT(3);                  // Specify this mode when calling init_*(),
+		  	                                // to indicate that any of the above modes
+		  	                                // should be automatically inferred from the
+		  	                                // variables in the language-specific config,
+		  	                                // command-line configs, or if not specified
+		  	                                // in any of the above should be set to the
+		  	                                // default OEM_TESSERACT_ONLY.
+		public int m_mode;
+				 
+		OcrEngineMode(final int m) {
+			m_mode = m;
+		}
+		
+		public final static String[] m_valueNames = {
+			"Tesseract Only",
+			"Cube Only",
+			"Tesseract And Cube",
+			"Default"
+		};
+  	};
 
     /**
      * Performs OCR operation.
