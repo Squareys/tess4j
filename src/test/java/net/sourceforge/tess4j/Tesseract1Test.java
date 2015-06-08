@@ -153,7 +153,7 @@ public class Tesseract1Test {
     public void testDoOCR_List_Rectangle() throws Exception {
         logger.info("doOCR on a PDF document");
         File imageFile = new File(this.testResourcesDataPath, "eurotext.pdf");
-        List<IIOImage> imageList = ImageIOHelper.getIIOImageList(imageFile);
+        List<IIOImage> imageList = ImageIOHelper.getImageList(imageFile);
         String expResult = "The (quick) [brown] {fox} jumps!\nOver the $43,456.78 <lazy> #90 dog";
         String result = instance.doOCR(imageList, null);
         logger.info(result);

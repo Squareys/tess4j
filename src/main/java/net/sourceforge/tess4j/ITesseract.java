@@ -17,10 +17,8 @@ package net.sourceforge.tess4j;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.nio.ByteBuffer;
 import java.util.List;
-import javax.imageio.IIOImage;
 
 /**
  * An interface represents common OCR methods.
@@ -40,29 +38,8 @@ public interface ITesseract {
      */
     public enum RenderedFormat {
 
-        TEXT, HOCR, PDF, UNLV, BOX
+        TEXT, HOCR, UNLV, BOX
     }
-
-    /**
-     * Performs OCR operation.
-     *
-     * @param imageFile an image file
-     * @return the recognized text
-     * @throws TesseractException
-     */
-    String doOCR(File imageFile) throws TesseractException;
-
-    /**
-     * Performs OCR operation.
-     *
-     * @param imageFile an image file
-     * @param rect the bounding rectangle defines the region of the image to be
-     * recognized. A rectangle of zero dimension or <code>null</code> indicates
-     * the whole image.
-     * @return the recognized text
-     * @throws TesseractException
-     */
-    String doOCR(File imageFile, Rectangle rect) throws TesseractException;
 
     /**
      * Performs OCR operation.
@@ -95,7 +72,7 @@ public interface ITesseract {
      * @return the recognized text
      * @throws TesseractException
      */
-    String doOCR(List<IIOImage> imageList, Rectangle rect) throws TesseractException;
+    String doOCR(List<BufferedImage> imageList, Rectangle rect) throws TesseractException;
 
     /**
      * Performs OCR operation.
@@ -109,7 +86,7 @@ public interface ITesseract {
      * @return the recognized text
      * @throws TesseractException
      */
-    String doOCR(List<IIOImage> imageList, String filename, Rectangle rect) throws TesseractException;
+    String doOCR(List<BufferedImage> imageList, String filename, Rectangle rect) throws TesseractException;
 
     /**
      * Performs OCR operation. Use <code>SetImage</code>, (optionally)
@@ -195,23 +172,4 @@ public interface ITesseract {
      */
     void setConfigs(List<String> configs);
 
-    /**
-     * Creates documents for given renderers.
-     *
-     * @param filename input image
-     * @param outputbase output filename without extension
-     * @param formats types of renderers
-     * @throws TesseractException
-     */
-    void createDocuments(String filename, String outputbase, List<RenderedFormat> formats) throws TesseractException;
-
-    /**
-     * Creates documents for given renderers.
-     *
-     * @param filenames array of input files
-     * @param outputbases array of output filenames without extension
-     * @param formats types of renderers
-     * @throws TesseractException
-     */
-    void createDocuments(String[] filenames, String[] outputbases, List<RenderedFormat> formats) throws TesseractException;
 }
