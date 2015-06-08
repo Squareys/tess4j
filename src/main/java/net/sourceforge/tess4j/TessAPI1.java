@@ -20,16 +20,16 @@ import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
+import net.sourceforge.lept4j.Boxa;
+import net.sourceforge.lept4j.Pix;
+import net.sourceforge.tess4j.util.LoadLibs;
+
+import com.ochafik.lang.jnaerator.runtime.NativeSize;
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.ptr.PointerByReference;
-
-import com.ochafik.lang.jnaerator.runtime.NativeSize;
-import net.sourceforge.lept4j.Boxa;
-import net.sourceforge.lept4j.Pix;
-import net.sourceforge.tess4j.util.LoadLibs;
 
 /**
  * A Java wrapper for <code>Tesseract OCR 3.04 API</code> using

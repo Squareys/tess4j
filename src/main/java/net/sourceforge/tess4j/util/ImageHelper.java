@@ -22,7 +22,13 @@ import java.awt.Toolkit;
 import java.awt.Transparency;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
-import java.awt.image.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
+import java.awt.image.ColorModel;
+import java.awt.image.LookupOp;
+import java.awt.image.ShortLookupTable;
+import java.awt.image.WritableRaster;
+
 import javax.imageio.IIOImage;
 
 public class ImageHelper {

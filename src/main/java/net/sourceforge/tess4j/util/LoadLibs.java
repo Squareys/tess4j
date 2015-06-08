@@ -25,16 +25,16 @@ import java.net.URLConnection;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-import java.util.logging.Logger;
 import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import net.sourceforge.tess4j.TessAPI;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import com.sun.jna.Native;
 import com.sun.jna.Platform;
-
-import net.sourceforge.tess4j.TessAPI;
 
 /**
  * Loads native libraries from JAR or project folder.

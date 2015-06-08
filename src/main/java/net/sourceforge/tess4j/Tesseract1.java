@@ -17,9 +17,6 @@ package net.sourceforge.tess4j;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
-import java.io.File;
-import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,8 +25,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.imageio.IIOImage;
 
 import net.sourceforge.tess4j.util.ImageIOHelper;
 

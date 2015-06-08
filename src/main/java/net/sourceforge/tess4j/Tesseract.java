@@ -15,25 +15,25 @@
  */
 package net.sourceforge.tess4j;
 
-import com.sun.jna.Pointer;
-import com.sun.jna.StringArray;
-import com.sun.jna.ptr.IntByReference;
-import com.sun.jna.ptr.PointerByReference;
-
 import java.awt.Rectangle;
-import java.awt.image.*;
-import java.io.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.util.*;
-import java.util.logging.*;
-
-import javax.imageio.IIOImage;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import net.sourceforge.tess4j.ITessAPI.TessBaseAPI;
 import net.sourceforge.tess4j.ITessAPI.TessOcrEngineMode;
-import net.sourceforge.tess4j.ITessAPI.TessResultRenderer;
 import net.sourceforge.tess4j.util.ImageIOHelper;
-import net.sourceforge.tess4j.util.Utils;
+
+import com.sun.jna.Pointer;
+import com.sun.jna.StringArray;
+import com.sun.jna.ptr.PointerByReference;
 
 /**
  * An object layer on top of <code>TessAPI</code>, provides character

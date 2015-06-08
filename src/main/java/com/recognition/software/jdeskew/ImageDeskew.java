@@ -3,11 +3,12 @@
  */
 package com.recognition.software.jdeskew;
 
+import java.awt.image.BufferedImage;
+
 import net.sourceforge.tess4j.util.LoggHelper;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.awt.image.BufferedImage;
 
 public class ImageDeskew {
 

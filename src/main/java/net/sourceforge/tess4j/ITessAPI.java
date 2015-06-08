@@ -15,13 +15,14 @@
  */
 package net.sourceforge.tess4j;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.Callback;
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.PointerType;
 import com.sun.jna.Structure;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * An interface represents common TessAPI classes/constants.
