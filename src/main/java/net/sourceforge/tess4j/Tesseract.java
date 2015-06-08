@@ -251,7 +251,7 @@ public class Tesseract implements ITesseract {
     /**
      * Initializes Tesseract engine.
      */
-    protected void init() {
+    public void init() {
         api = TessAPI.INSTANCE;
         handle = api.TessBaseAPICreate();
         StringArray sarray = new StringArray(configList.toArray(new String[0]));
@@ -266,7 +266,7 @@ public class Tesseract implements ITesseract {
     /**
      * Sets Tesseract's internal parameters.
      */
-    protected void setTessVariables() {
+    public void setTessVariables() {
         Enumeration<?> em = prop.propertyNames();
         while (em.hasMoreElements()) {
             String key = (String) em.nextElement();
@@ -281,7 +281,7 @@ public class Tesseract implements ITesseract {
      * @param rect region of interest
      * @throws java.io.IOException
      */
-    protected void setImage(BufferedImage image, Rectangle rect) throws IOException {
+    public void setImage(BufferedImage image, Rectangle rect) throws IOException {
         setImage(image.getWidth(), image.getHeight(), ImageIOHelper.convertImageData(image), rect, image
                 .getColorModel().getPixelSize());
     }
@@ -298,7 +298,7 @@ public class Tesseract implements ITesseract {
      * @param bpp bits per pixel, represents the bit depth of the image, with 1
      * for binary bitmap, 8 for gray, and 24 for color RGB.
      */
-    protected void setImage(int xsize, int ysize, ByteBuffer buf, Rectangle rect, int bpp) {
+    public void setImage(int xsize, int ysize, ByteBuffer buf, Rectangle rect, int bpp) {
         int bytespp = bpp / 8;
         int bytespl = (int) Math.ceil(xsize * bpp / 8.0);
         api.TessBaseAPISetImage(handle, buf, xsize, ysize, bytespp, bytespl);
@@ -316,7 +316,7 @@ public class Tesseract implements ITesseract {
      * @param pageNum page number; needed for hocr paging.
      * @return the recognized text
      */
-    protected String getOCRText(String filename, int pageNum) {
+    public String getOCRText(String filename, int pageNum) {
         if (filename != null && !filename.isEmpty()) {
             api.TessBaseAPISetInputName(handle, filename);
         }
@@ -328,74 +328,9 @@ public class Tesseract implements ITesseract {
     }
 
     /**
-     * Creates renderers for given formats.
-     *
-     * @param outputbase
-     * @param formats
-     * @return
-     */
-    private TessResultRenderer createRenderers(String outputbase, List<RenderedFormat> formats) {
-        TessResultRenderer renderer = null;
-
-        for (RenderedFormat format : formats) {
-            switch (format) {
-                case TEXT:
-                    if (renderer == null) {
-                        renderer = api.TessTextRendererCreate(outputbase);
-                    } else {
-                        api.TessResultRendererInsert(renderer, api.TessTextRendererCreate(outputbase));
-                    }
-                    break;
-                case HOCR:
-                    if (renderer == null) {
-                        renderer = api.TessHOcrRendererCreate(outputbase);
-                    } else {
-                        api.TessResultRendererInsert(renderer, api.TessHOcrRendererCreate(outputbase));
-                    }
-                    break;
-                case BOX:
-                    if (renderer == null) {
-                        renderer = api.TessBoxTextRendererCreate(outputbase);
-                    } else {
-                        api.TessResultRendererInsert(renderer, api.TessBoxTextRendererCreate(outputbase));
-                    }
-                    break;
-                case UNLV:
-                    if (renderer == null) {
-                        renderer = api.TessUnlvRendererCreate(outputbase);
-                    } else {
-                        api.TessResultRendererInsert(renderer, api.TessUnlvRendererCreate(outputbase));
-                    }
-                    break;
-            }
-        }
-
-        return renderer;
-    }
-
-    /**
-     * Creates documents.
-     *
-     * @param filename input file
-     * @param outputbase output filename without extension
-     * @param renderer renderer
-     * @throws TesseractException
-     */
-    private void createDocuments(String filename, TessResultRenderer renderer) throws TesseractException {
-        api.TessBaseAPISetInputName(handle, filename); //for reading a UNLV zone file
-        api.TessResultRendererBeginDocument(renderer, filename);
-        int result = api.TessBaseAPIProcessPages(handle, filename, null, 0, renderer);
-        api.TessResultRendererEndDocument(renderer);
-
-        if (result == ITessAPI.FALSE) {
-            throw new TesseractException("Error during processing page.");
-        }
-    }
-
-    /**
      * Releases all of the native resources used by this instance.
      */
-    protected void dispose() {
+    public void dispose() {
         api.TessBaseAPIDelete(handle);
     }
 
