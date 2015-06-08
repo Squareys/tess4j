@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.sourceforge.tess4j</groupId>
-    <artifactId>tess4j</artifactId>
+    <artifactId>tess4j-lw</artifactId>
     <version>3.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Tess4J - Tesseract for Java</name>
+    <name>Light-Weight Tess4J - Tesseract for Java</name>
     <url>http://tess4j.sourceforge.net</url>
     <description>
         # Tess4J
@@ -20,10 +20,8 @@
 
         ## Features:
 
-        The library provides optical character recognition (OCR) support for:
+        The library provides optical character recognition (OCR) support for Java Images.
 
-        TIFF, JPEG, GIF, PNG, and BMP image formats
-        Multi-page TIFF images
         PDF document format
     </description>
 
@@ -209,16 +207,6 @@
             <groupId>net.java.dev.jna</groupId>
             <artifactId>jna</artifactId>
             <version>4.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.jai-imageio</groupId>
-            <artifactId>jai-imageio-core</artifactId>
-            <version>1.2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ghost4j</groupId>
-            <artifactId>ghost4j</artifactId>
-            <version>0.5.1</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
