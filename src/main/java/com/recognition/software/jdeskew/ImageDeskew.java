@@ -7,9 +7,6 @@ import java.awt.image.BufferedImage;
 
 import net.sourceforge.tess4j.util.LoggHelper;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class ImageDeskew {
 
     /**
@@ -27,7 +24,6 @@ public class ImageDeskew {
         public double d;
     }
 
-    private static final Logger logger = LoggerFactory.getLogger(new LoggHelper().toString());
     // the source image
     private BufferedImage cImage;
     // the range of angles to search for lines
@@ -139,11 +135,7 @@ public class ImageDeskew {
             d = y * this.cCosA[alpha] - x * this.cSinA[alpha];
             dIndex = (int) (d - this.cDMin);
             index = dIndex * this.cSteps + alpha;
-            try {
-                this.cHMatrix[index] += 1;
-            } catch (Exception ex) {
-                logger.info(ex.toString());
-            }
+            this.cHMatrix[index] += 1;
         }
     }
 
