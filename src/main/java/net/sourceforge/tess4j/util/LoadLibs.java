@@ -50,8 +50,8 @@ public class LoadLibs {
     /**
      * Native library name.
      */
-    public static final String LIB_NAME = "libtesseract304";
-    public static final String LIB_NAME_NON_WIN = "tesseract";
+    public static String LIB_NAME = "libtesseract304";
+    public static String LIB_NAME_NON_WIN = "tesseract";
 
     private final static Logger logger = Logger.getLogger(LoadLibs.class.getName());
 
@@ -86,6 +86,22 @@ public class LoadLibs {
      */
     public static String getTesseractLibName() {
         return Platform.isWindows() ? LIB_NAME : LIB_NAME_NON_WIN;
+    }
+    
+    /**
+     * Set the tesseract windows library name.
+     * @param name name of the library
+     */
+    public static void setTesseractLibraryName(String name) {
+    	LIB_NAME = name;
+    }
+    
+    /**
+     * Set the tesseract non-windows library name.
+     * @param name name of the library
+     */
+    public static void setTesseractLibraryNameNonWindows(String name) {
+    	LIB_NAME = name;
     }
 
     /**
