@@ -67,7 +67,7 @@ public class Tesseract1 extends TessAPI1 implements ITesseract {
      *
      * @return handle
      */
-    protected TessBaseAPI getHandle() {
+    public TessBaseAPI getHandle() {
         return handle;
     }
 

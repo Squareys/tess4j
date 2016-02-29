@@ -72,7 +72,7 @@ public class Tesseract implements ITesseract {
      *
      * @return api
      */
-    protected TessAPI getAPI() {
+    public TessAPI getAPI() {
         return api;
     }
 
@@ -81,7 +81,7 @@ public class Tesseract implements ITesseract {
      *
      * @return handle
      */
-    protected TessBaseAPI getHandle() {
+    public TessBaseAPI getHandle() {
         return handle;
     }
 
